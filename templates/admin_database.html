@@ -1,0 +1,8 @@
+{{ $context := . }}
+
+<form method="POST">
+    <button class="btn btn-danger m-3 p-2" type="submit" 
+            formaction="{{ $context.InitUrl}}">
+        Initialize Database
+    </button>
+</form>
