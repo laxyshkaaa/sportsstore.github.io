@@ -1,10 +1,13 @@
 {{ $context := . }}
 
-<select class="form-select" name="category" value="{{ $context.Current }}">
-    <option value="0">Select a category</option>
-    {{ range $context.Categories }}
-        <option value="{{.ID}}" {{ if eq $context.Current .ID }}selected{{end}}>
-            {{.CategoryName}}
+<div class="form-group">
+    <label for="category" class="form-label">Выбрать категорию:</label>
+    <select class="form-select" id="category" name="category" value="{{ $context.Current }}">
+        <option value="0">Все категории</option>
+        {{ range $context.Categories }}
+        <option value="{{ .ID }}" {{ if eq $context.Current .ID }}selected{{ end }}>
+            {{ .CategoryName }}
         </option>
-    {{ end }}
-</select>
+        {{ end }}
+    </select>
+</div>

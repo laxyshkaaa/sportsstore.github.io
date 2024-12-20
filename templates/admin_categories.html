@@ -11,7 +11,7 @@
                         <form method="POST" action="{{ $context.EditUrl }}">
                             <input type="hidden" name="id" value="{{ .ID }}" />
                             <button class="btn btn-sm btn-warning" type="submit">
-                                Edit
+                                Изменить
                             </button>
                         </form>
                     </td>                    
@@ -28,7 +28,7 @@
                             value="{{ .CategoryName }}" /></td>
                     <td class="text-center">
                             <button class="btn btn-sm btn-danger" type="submit">
-                                Save
+                                Сохранить
                             </button>
                         </td>
                     </form>
@@ -38,7 +38,7 @@
     </tbody>
     {{ if eq $context.EditId 0}}
         <tfoot>
-            <tr><td colspan="6" class="text-center">Add New Category</td></tr>
+            <tr><td colspan="6" class="text-center">Добавить новую категорию</td></tr>
             <tr>
                 <form method="POST" action="{{ $context.SaveUrl }}" >
                     <td>-</td>
@@ -46,7 +46,7 @@
                         size=12 /></td>
                     <td class="text-center">
                         <button class="btn btn-sm btn-danger" type="submit">
-                            Save
+                            Сохранить
                         </button>
                     </td>
                 </form>

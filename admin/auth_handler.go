@@ -36,7 +36,7 @@ func (handler AuthenticationHandler) PostSignIn(creds Credentials) actionresults
 			return actionresults.NewRedirectAction("/admin/section/")
 		}
 	}
-	handler.Session.SetValue(SIGNIN_MSG_KEY, "Access Denied")
+	handler.Session.SetValue(SIGNIN_MSG_KEY, "Доступ отказан")
 	return actionresults.NewRedirectAction(mustGenerateUrl(handler.URLGenerator,
 		AuthenticationHandler.GetSignIn))
 }

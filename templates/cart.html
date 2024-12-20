@@ -1,53 +1,49 @@
 {{ layout "simple_layout.html" }}
 {{ $context := . }}
 
-<div class="p-1">
-    <h2>Your cart</h2>
-    <table class="table table-bordered table-striped">
-        <thead>
-            <tr>
-                <th>Quantity</th><th>Item</th>
-                <th class="text-end">Price</th>
-                <th class="text-end">Subtotal</th>
-                <th />
-            </tr>
+<div class="p-3">
+    <h2 class="text-center mb-4">Ваша корзина</h2>
+    <table class="table table-bordered table-hover">
+        <thead class="table-dark">
+        <tr>
+            <th>Количество</th>
+            <th>Продукт</th>
+            <th class="text-end">Цена</th>
+            <th class="text-end">Итог</th>
+            <th>Действие</th>
+        </tr>
         </thead>
         <tbody>
-            {{ range $context.Cart.GetLines }}
-                <tr>
-                    <td class="text-start">{{ .Quantity }}</td>
-                    <td class="text-start">{{ .Name }}</td>
-                    <td class="text-end">{{ printf "$%.2f" .Price }}</td>
-                    <td class="text-end">
-                        {{ printf "$%.2f" .GetLineTotal }}
-                    </td>
-                    <td>
-                        <form method="POST" action="{{  $context.RemoveUrl }}">
-                            <input type="hidden" name="id" value="{{ .ID }}" />
-                            <button class="btn btn-sm btn-danger" type="submit">
-                                Remove
-                            </button>
-                        </form>
-                    </td>                    
-                </tr>
-                
-            {{ end }}
+        {{ range $context.Cart.GetLines }}
+        <tr>
+            <td>{{ .Quantity }}</td>
+            <td>{{ .Name }}</td>
+            <td class="text-end">{{ printf "$%.2f" .Price }}</td>
+            <td class="text-end">{{ printf "$%.2f" .GetLineTotal }}</td>
+            <td>
+                <form method="POST" action="{{ $context.RemoveUrl }}">
+                    <input type="hidden" name="id" value="{{ .ID }}" />
+                    <button class="btn btn-sm btn-danger" type="submit">
+                        <i class="fas fa-trash"></i> Удалить
+                    </button>
+                </form>
+            </td>
+        </tr>
+        {{ end }}
         </tbody>
         <tfoot>
-            <tr>
-                <td colspan="3" class="text-end">Total:</td>
-                <td class="text-end">
-                    {{ printf "$%.2f" $context.Cart.GetTotal }}
-                </td>
-            </tr>
+        <tr>
+            <td colspan="3" class="text-end"><b>Итог:</b></td>
+            <td class="text-end"><b>{{ printf "$%.2f" $context.Cart.GetTotal }}</b></td>
+        </tr>
         </tfoot>
     </table>
-    <div class="text-center">
-        <a class="btn btn-secondary" href="{{ $context.ProductListUrl }}">
-            Continue shopping
+    <div class="text-center mt-3">
+        <a class="btn btn-outline-secondary" href="{{ $context.ProductListUrl }}">
+            <i class="fas fa-shopping-basket"></i> Продолжить покупки
         </a>
-        <a class="btn btn-primary" href="{{ $context.CheckoutUrl }}">
-            Checkout
+        <a class="btn btn-success" href="{{ $context.CheckoutUrl }}">
+            <i class="fas fa-credit-card"></i> Оплатить
         </a>
     </div>
 </div>

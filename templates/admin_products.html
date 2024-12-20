@@ -2,8 +2,8 @@
 <table class="table table-sm table-striped table-bordered">
     <thead>
         <tr>
-            <th>ID</th><th>Name</th><th>Description</th>
-            <th>Category</th><th class="text-end">Price</th><th></th>
+            <th>ID</th><th>Имя</th><th>Описание</th>
+            <th>Категория</th><th class="text-end">Цена</th><th></th>
         </tr>
     </thead>
     <tbody>
@@ -24,7 +24,7 @@
                         <form method="POST" action="{{ $context.EditUrl }}">
                             <input type="hidden" name="id" value="{{ .ID }}" />
                             <button class="btn btn-sm btn-warning" type="submit">
-                                Edit
+                                Изменить
                             </button>
                         </form>
                     </td>
@@ -46,7 +46,7 @@
                             size=7 value="{{ .Price }}"/></td>
                         <td>
                             <button class="btn btn-sm btn-danger" type="submit">
-                                Save
+                                Сохранить
                             </button>
                         </td>
                     </form>
@@ -56,7 +56,7 @@
     </tbody>
     {{ if eq $context.EditId 0}}
         <tfoot>
-            <tr><td colspan="6" class="text-center">Add New Product</td></tr>
+            <tr><td colspan="6" class="text-center">Добавить новый продукт</td></tr>
             <tr>
                 <form method="POST" action="{{ $context.SaveUrl }}" >
                     <td>-</td>
@@ -67,7 +67,7 @@
                     <td><input name="price" class="form-control" size=7 /></td>
                     <td>
                         <button class="btn btn-sm btn-danger" type="submit">
-                            Save
+                            Сохранить
                         </button>
                     </td>
                 </form>

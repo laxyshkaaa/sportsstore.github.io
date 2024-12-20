@@ -1,11 +1,11 @@
 {{ layout "simple_layout.html" }}
 {{ $context := . }}
 
-<div class="text-center m-3">
-    <h2>Thanks!</h2>
-    <p>Thanks for placing order #{{ $context.ID }} </p>
-    <p>We'll ship your goods as soon as possible.</p>
-    <a class="btn btn-primary" href="{{ $context.TargetUrl }}">
-        Return to Store
+<div class="text-center p-5">
+    <h2 class="text-success mb-4">Спасибо за ваш заказ!</h2>
+    <p class="fs-5">Ваш заказ #{{ $context.ID }} был успешно оформлен.</p>
+    <p class="fs-6 text-muted">Мы начнем обработку вашего заказа и доставим его как можно скорее.</p>
+    <a class="btn btn-primary mt-3" href="{{ $context.TargetUrl }}">
+        <i class="fas fa-shopping-bag"></i> Вернуться в магазин
     </a>
 </div>
